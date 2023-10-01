@@ -1,5 +1,5 @@
 {
-  "name": "lyricfinder",
+  "name": "Lyric Master",
   "version": "1.0.0",
   "description": "App for finding names of songs from lyrics",
   "main": "server.js",

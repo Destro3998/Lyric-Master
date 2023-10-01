@@ -115,7 +115,7 @@ async function savePlaylist(pname) {
     }
     MongoClient.connect(uri, function(err,db) {
         if (err) throw err
-        var dbo = db.db('LyricFynder');
+        var dbo = db.db('Lyric Master');
         dbo.collection("Playlists").insertOne(playlist, function(err,res){
             if (err) throw err
             console.log("Insert Successful")
@@ -129,7 +129,7 @@ async function savePlaylist(pname) {
 function deletePlaylistDB(playlist) {
     MongoClient.connect(uri, function(err, db){
         if (err) throw err
-        var dbo = db.db('LyricFynder')
+        var dbo = db.db('Lyric Master')
         dbo.collection('Playlists').deleteOne(playlist, function(err, res){
             console.log(`${playlist._id} deleted`);
             db.close();
@@ -141,7 +141,7 @@ function deletePlaylistDB(playlist) {
 function getPlaylistDB(playlist) {
     MongoClient.connect(uri, function(err, db) {
         if (err) throw err;
-        var dbo = db.db('LyricFynder');
+        var dbo = db.db('Lyric Master');
         dbo.collection('Playlists').findOne(playlist, function(err, res){
             console.log(res)
         })

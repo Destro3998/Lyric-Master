@@ -62,7 +62,7 @@ app.get('/songData', (req, res) => {
 app.get('/topcharts', (req, res) => {
     MongoClient.connect(process.env.DB, function(err,db){
         if (err) throw err;
-        const dbo = db.db('LyricFynder');
+        const dbo = db.db('Lyric Master');
 
         dbo.collection('TopCharts-2020-12-05').find({}).toArray(function(err,data){
             if (err) throw err;
@@ -78,7 +78,7 @@ app.post('/trending', (req, res) => {
     const plist_request = (req.body).playlist;
     MongoClient.connect(process.env.DB, function(err, db) {
         if (err) throw err;
-        const dbo = db.db('LyricFynder');
+        const dbo = db.db('Lyric Master');
         dbo.collection('Playlists').findOne({_id: plist_request}, function(err, data){
             if (err) throw err;
             res.json(data);

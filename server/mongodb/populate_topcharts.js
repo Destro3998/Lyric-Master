@@ -20,7 +20,7 @@ async function populate_topcharts() {
 
     MongoClient.connect(uri, function(err,db){
         if (err) throw err;
-        var dbo = db.db('LyricFynder');
+        var dbo = db.db('Lyric Master');
         dbo.createCollection(col, function(err,res){
             if (err) throw err;
             console.log(`Collection ${col} Created!`);

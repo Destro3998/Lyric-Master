@@ -37,7 +37,7 @@ const uri = process.env.DB;
 // Collection Deletion
 MongoClient.connect(uri, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("LyricFynder");
+    var dbo = db.db("Lyric Master");
     dbo.collection("sample-test").drop(function(err,delOK){
       if (err) throw err;
       if (delOK) console.log("Deleted Collection");
